@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+.env*
+!.env.example
+.DS_Store
+*.log
+everything-claude-code/
+everything cloude code/
