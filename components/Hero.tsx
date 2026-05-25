@@ -10,11 +10,31 @@ export default function Hero() {
 
   return (
     <section id="top" className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 grid-bg opacity-70" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: "url('/images/arc.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center 65%",
+          opacity: 0.5,
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 30%, black 55%, rgba(0,0,0,0.4) 80%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 30%, black 55%, rgba(0,0,0,0.4) 80%, transparent 100%)",
+        }}
+      />
+
+      <div className="pointer-events-none absolute inset-0 grid-bg opacity-40" />
 
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 h-[32rem] w-[72rem] -translate-x-1/2 rounded-full bg-gold/18 blur-3xl"
+        className="pointer-events-none absolute -top-40 left-1/2 h-[32rem] w-[72rem] -translate-x-1/2 rounded-full"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgba(17,17,17,0.05), transparent 70%)",
+          filter: "blur(40px)",
+        }}
         animate={
           reduce
             ? undefined
@@ -62,7 +82,7 @@ export default function Hero() {
           </motion.span>
 
           <motion.h1
-            className="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl"
+            className="mt-6 font-display text-5xl font-light leading-[1.0] tracking-tight text-ink sm:text-6xl md:text-7xl"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}

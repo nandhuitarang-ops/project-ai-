@@ -9,33 +9,33 @@ const config: Config = {
     extend: {
       colors: {
         cream: {
-          DEFAULT: "#faf5e9",
-          light: "#fffdf6",
-          dark: "#f0e6cf"
+          DEFAULT: "#faf9f7",
+          light: "#fafaf8",
+          dark: "#ece9e3"
         },
         bg: {
-          DEFAULT: "#fbf7ec",
-          soft: "#fffdf6",
+          DEFAULT: "#F5F4F0",
+          soft: "#faf9f7",
           card: "#ffffff"
         },
         ink: {
-          DEFAULT: "#16161b",
-          muted: "#5a5a66",
-          faint: "#9a9aa5"
+          DEFAULT: "#111111",
+          muted: "rgba(17,17,17,0.55)",
+          faint: "rgba(17,17,17,0.35)"
         },
         gold: {
-          DEFAULT: "#c9a227",
-          light: "#e2c25a",
-          soft: "#f3e7c2",
-          deep: "#8a6a1f",
-          warm: "#d8b04a"
+          DEFAULT: "#111111",
+          light: "rgba(17,17,17,0.45)",
+          soft: "rgba(17,17,17,0.04)",
+          deep: "#111111",
+          warm: "rgba(17,17,17,0.5)"
         },
-        line: "#ece3ca"
+        line: "rgba(17,17,17,0.07)"
       },
       fontFamily: {
-        sans: ["Plus Jakarta Sans", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["Plus Jakarta Sans", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"]
+        sans: ["IBM Plex Sans", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["IBM Plex Sans", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["Courier Prime", "JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"]
       },
       boxShadow: {
         soft: "0 1px 2px rgba(22,22,27,0.04), 0 8px 24px -12px rgba(22,22,27,0.08)",
@@ -61,7 +61,10 @@ const config: Config = {
         "gradient-shift": "gradient-shift 10s ease-in-out infinite",
         "blink": "blink 1.1s steps(1) infinite",
         "shimmer": "shimmer 3s linear infinite",
-        "ping-slow": "ping 3s cubic-bezier(0, 0, 0.2, 1) infinite"
+        "ping-slow": "ping 3s cubic-bezier(0, 0, 0.2, 1) infinite",
+        "word-reveal": "word-reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "fade-up": "fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "pulse-dot": "pulse-dot 1.8s ease-in-out infinite"
       },
       keyframes: {
         float: {
@@ -87,6 +90,30 @@ const config: Config = {
         shimmer: {
           "0%": { "background-position": "-200% 0" },
           "100%": { "background-position": "200% 0" }
+        },
+        "word-reveal": {
+          "0%": {
+            opacity: "0",
+            filter: "blur(8px)",
+            transform: "translateY(12px)"
+          },
+          "60%": {
+            opacity: "0.85",
+            filter: "blur(3px)"
+          },
+          "100%": {
+            opacity: "1",
+            filter: "blur(0px)",
+            transform: "translateY(0)"
+          }
+        },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" }
+        },
+        "pulse-dot": {
+          "0%, 100%": { transform: "scale(1)", opacity: "1" },
+          "50%": { transform: "scale(1.4)", opacity: "0.6" }
         }
       }
     }

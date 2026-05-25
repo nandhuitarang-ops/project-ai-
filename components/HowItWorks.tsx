@@ -1,9 +1,10 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Reveal from "./motion/Reveal";
 import SpotlightCard from "./motion/SpotlightCard";
+import WordReveal from "./motion/WordReveal";
+import StackingCards from "./motion/StackingCards";
 
 const steps = [
   {
@@ -33,16 +34,26 @@ const steps = [
 ];
 
 export default function HowItWorks() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-  const progressScale = useTransform(scrollYProgress, [0.1, 0.85], [0, 1]);
-
   return (
-    <section id="how" className="relative border-t border-line py-24 sm:py-32">
-      <div className="container-page">
+    <section
+      id="how"
+      className="relative overflow-hidden border-t border-line py-24 sm:py-32"
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-0 top-0 h-full w-1/2"
+        style={{
+          backgroundImage: "url('/images/arc.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "left center",
+          opacity: 0.1,
+          maskImage:
+            "linear-gradient(to left, black 0%, transparent 80%)",
+          WebkitMaskImage:
+            "linear-gradient(to left, black 0%, transparent 80%)",
+        }}
+      />
+      <div className="container-page relative z-10">
         <div className="max-w-3xl">
           <Reveal>
             <span className="section-eyebrow">
@@ -55,59 +66,55 @@ export default function HowItWorks() {
               <span className="gradient-text italic">One real project.</span>
             </h2>
           </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-5 text-lg muted">
-              No curriculum. No 40-hour video wall. Just focused building with
-              someone who's shipped.
-            </p>
-          </Reveal>
+          <WordReveal
+            as="p"
+            className="mt-5 text-lg muted"
+            stagger={36}
+            duration={640}
+          >
+            No curriculum. No 40-hour video wall. Just focused building with someone who's shipped.
+          </WordReveal>
         </div>
 
-        <div ref={ref} className="relative mt-12">
-          <div className="pointer-events-none absolute left-0 right-0 top-10 hidden lg:block">
-            <div className="mx-6 h-px bg-line" />
-            <motion.div
-              aria-hidden
-              style={{ scaleX: progressScale }}
-              className="mx-6 -mt-px h-px origin-left bg-gradient-to-r from-gold-deep via-gold to-gold-light shadow-[0_0_8px_rgba(201,162,39,0.4)]"
-            />
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="relative mt-12">
+          <StackingCards>
             {steps.map((s, i) => (
-              <Reveal key={s.n} delay={i * 0.08}>
-                <SpotlightCard className="relative h-full card-hover">
-                  <div className="flex items-baseline justify-between">
-                    <motion.span
-                      className="font-display text-3xl font-semibold text-gold-deep/80"
-                      whileHover={{ scale: 1.1, color: "#8a6a1f" }}
-                    >
-                      {s.n}
-                    </motion.span>
-                    <span className="chip font-mono">{s.hint}</span>
-                  </div>
-                  <h3 className="mt-5 font-display text-lg font-semibold text-ink">
-                    {s.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-ink-muted">{s.body}</p>
-                  {i < steps.length - 1 && (
-                    <motion.div
-                      aria-hidden
-                      className="absolute -right-3 top-10 hidden text-gold/70 lg:block"
-                      animate={{ x: [0, 4, 0] }}
-                      transition={{
-                        duration: 1.6,
-                        repeat: Infinity,
-                        delay: i * 0.2
-                      }}
-                    >
-                      →
-                    </motion.div>
-                  )}
-                </SpotlightCard>
-              </Reveal>
+              <SpotlightCard
+                key={s.n}
+                className="relative card-hover min-h-[240px] sm:min-h-[260px] bg-bg-card"
+              >
+                <div className="flex items-baseline justify-between">
+                  <motion.span
+                    className="font-display text-4xl font-semibold text-gold-deep/80 sm:text-5xl"
+                    whileHover={{ scale: 1.1, color: "#111111" }}
+                  >
+                    {s.n}
+                  </motion.span>
+                  <span className="chip font-mono">{s.hint}</span>
+                </div>
+                <h3 className="mt-6 font-display text-xl font-semibold text-ink sm:text-2xl">
+                  {s.title}
+                </h3>
+                <p className="mt-3 max-w-xl text-base text-ink-muted">
+                  {s.body}
+                </p>
+                {i < steps.length - 1 && (
+                  <motion.div
+                    aria-hidden
+                    className="absolute bottom-6 right-6 text-gold/70"
+                    animate={{ y: [0, 4, 0] }}
+                    transition={{
+                      duration: 1.6,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                    }}
+                  >
+                    ↓
+                  </motion.div>
+                )}
+              </SpotlightCard>
             ))}
-          </div>
+          </StackingCards>
         </div>
       </div>
     </section>

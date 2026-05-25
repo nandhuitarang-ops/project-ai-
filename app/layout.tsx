@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import IntroGate from "@/components/motion/IntroGate";
 
 export const viewport: Viewport = {
-  themeColor: "#fbf7ec"
+  themeColor: "#F5F4F0"
 };
 
 export const metadata: Metadata = {
@@ -32,12 +33,15 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&display=swap"
           rel="stylesheet"
         />
         <link rel="icon" href="/logo.png" />
       </head>
-      <body>{children}</body>
+      <body>
+        <IntroGate />
+        {children}
+      </body>
     </html>
   );
 }

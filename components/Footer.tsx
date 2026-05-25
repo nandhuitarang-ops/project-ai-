@@ -6,8 +6,21 @@ import Marquee from "./motion/Marquee";
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-line bg-cream-light/50 pt-12">
-      <div className="container-page grid gap-10 md:grid-cols-3">
+    <footer className="relative overflow-hidden border-t border-line bg-cream-light/50 pt-12">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-0 h-[60%] opacity-[0.12]"
+        style={{
+          backgroundImage: "url('/images/footer.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center bottom",
+          maskImage:
+            "linear-gradient(to top, black 0%, black 40%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to top, black 0%, black 40%, transparent 100%)",
+        }}
+      />
+      <div className="container-page relative z-10 grid gap-10 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-3">
             <div className="relative h-12 w-12">
@@ -54,8 +67,8 @@ export default function Footer() {
             title="Contact"
             links={[
               {
-                href: "mailto:nandhu939880@gmail.com",
-                label: "nandhu939880@gmail.com"
+                href: "mailto:nexia0911@gmail.com",
+                label: "nexia0911@gmail.com"
               },
               {
                 href: "https://wa.me/919666240862",
@@ -67,19 +80,19 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container-page mt-10 flex flex-col items-start justify-between gap-3 border-t border-line pt-6 text-xs text-ink-faint sm:flex-row sm:items-center">
+      <div className="container-page relative z-10 mt-10 flex flex-col items-start justify-between gap-3 border-t border-line pt-6 text-xs text-ink-faint sm:flex-row sm:items-center">
         <span>
           © {new Date().getFullYear()} NEXIA. Intellect · Connection · Growth.
         </span>
         <a
-          href="mailto:nandhu939880@gmail.com"
+          href="mailto:nexia0911@gmail.com"
           className="font-mono link-underline hover:text-ink"
         >
-          nandhu939880@gmail.com
+          nexia0911@gmail.com
         </a>
       </div>
 
-      <div className="mt-10 overflow-hidden">
+      <div className="relative z-10 mt-10 overflow-hidden">
         <Marquee fast pauseOnHover={false}>
           {Array.from({ length: 6 }).map((_, i) => (
             <span

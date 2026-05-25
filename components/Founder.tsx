@@ -8,9 +8,23 @@ export default function Founder() {
   return (
     <section
       id="founder"
-      className="relative border-t border-line bg-cream-light/40 py-24 sm:py-32"
+      className="relative overflow-hidden border-t border-line bg-cream-light/40 py-24 sm:py-32"
     >
-      <div className="container-page">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: "url('/images/arc.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center 30%",
+          opacity: 0.18,
+          maskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 80%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 80%)",
+        }}
+      />
+      <div className="container-page relative z-10">
         <div className="mx-auto max-w-3xl">
           <Reveal>
             <span className="section-eyebrow">
@@ -31,9 +45,9 @@ export default function Founder() {
                     className="absolute inset-0 rounded-2xl"
                     style={{
                       background:
-                        "conic-gradient(from 180deg, #c9a227, #e5c15c, #8a6a1f, #c9a227)",
+                        "conic-gradient(from 180deg, #111111, #444444, #111111, #222222)",
                       filter: "blur(12px)",
-                      opacity: 0.6
+                      opacity: 0.35
                     }}
                     animate={{ rotate: 360 }}
                     transition={{
@@ -42,7 +56,7 @@ export default function Founder() {
                       ease: "linear"
                     }}
                   />
-                  <div className="relative grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-gold-light via-gold to-gold-deep font-display text-xl font-bold text-white shadow-glow">
+                  <div className="relative grid h-16 w-16 place-items-center rounded-2xl bg-ink font-display text-xl font-light text-cream shadow-card">
                     n.
                   </div>
                 </motion.div>

@@ -126,8 +126,8 @@ export default function Projects() {
                         key={t}
                         whileHover={{
                           scale: 1.08,
-                          borderColor: "rgba(201,162,39,0.55)",
-                          color: "#8a6a1f"
+                          borderColor: "rgba(17,17,17,0.25)",
+                          color: "#111111"
                         }}
                         transition={{ type: "spring", stiffness: 300 }}
                         className="cursor-default rounded-md border border-line bg-cream/50 px-2 py-1 font-mono text-[11px] text-ink-muted"

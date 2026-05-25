@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Reveal from "./motion/Reveal";
+import WordReveal from "./motion/WordReveal";
 
 const rows = [
   { us: "A real, deployed project", them: "A 40-hour course certificate" },
@@ -39,12 +40,14 @@ export default function WhyDifferent() {
               </span>
             </h2>
           </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-5 text-lg muted">
-              No black boxes. You understand every line you ship — because you
-              wrote it, debugged it, and deployed it yourself.
-            </p>
-          </Reveal>
+          <WordReveal
+            as="p"
+            className="mt-5 text-lg muted"
+            stagger={32}
+            duration={640}
+          >
+            No black boxes. You understand every line you ship — because you wrote it, debugged it, and deployed it yourself.
+          </WordReveal>
         </div>
 
         <Reveal delay={0.15}>
@@ -52,7 +55,7 @@ export default function WhyDifferent() {
             <div className="grid grid-cols-2 border-b border-line bg-cream/60 text-xs font-mono uppercase tracking-wider">
               <div className="flex items-center gap-2 px-5 py-3 tracking-[0.2em] text-gold-deep">
                 <motion.span
-                  className="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_8px_rgba(201,162,39,0.6)]"
+                  className="h-1.5 w-1.5 rounded-full bg-ink shadow-[0_0_8px_rgba(17,17,17,0.3)]"
                   animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
                   transition={{ duration: 1.8, repeat: Infinity }}
                 />

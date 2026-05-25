@@ -79,7 +79,7 @@ export default function EdgeRunner() {
           translateX: "-50%",
           translateY: "-50%",
           background:
-            "radial-gradient(circle, rgba(201,162,39,0.45) 0%, rgba(201,162,39,0.1) 45%, transparent 75%)",
+            "radial-gradient(circle, rgba(17,17,17,0.18) 0%, rgba(17,17,17,0.04) 45%, transparent 75%)",
           filter: "blur(4px)"
         }}
         animate={{ opacity: [0.55, 0.95, 0.55], scale: [0.92, 1.08, 0.92] }}
@@ -88,7 +88,7 @@ export default function EdgeRunner() {
 
       {/* rotating ring */}
       <motion.div
-        className="relative grid h-7 w-7 place-items-center rounded-full border border-gold/50 bg-cream-light/80 shadow-[0_0_14px_rgba(201,162,39,0.55)] backdrop-blur-sm"
+        className="relative grid h-7 w-7 place-items-center rounded-full border border-gold/50 bg-cream-light/80 shadow-[0_0_14px_rgba(17,17,17,0.2)] backdrop-blur-sm"
         style={{ rotate, scale: pulse }}
         animate={{ opacity: [0.85, 1, 0.85] }}
         transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
@@ -98,22 +98,22 @@ export default function EdgeRunner() {
           viewBox="0 0 24 24"
           width={16}
           height={16}
-          className="drop-shadow-[0_0_4px_rgba(201,162,39,0.8)]"
+          className="drop-shadow-[0_0_4px_rgba(17,17,17,0.4)]"
         >
           <defs>
             <linearGradient id="er-needle" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e2c25a" />
-              <stop offset="55%" stopColor="#c9a227" />
-              <stop offset="100%" stopColor="#8a6a1f" />
+              <stop offset="0%" stopColor="#444444" />
+              <stop offset="55%" stopColor="#222222" />
+              <stop offset="100%" stopColor="#111111" />
             </linearGradient>
           </defs>
           <path d="M12 2 L15 13 L12 11 L9 13 Z" fill="url(#er-needle)" />
-          <circle cx="12" cy="12" r="1.6" fill="#16161b" />
+          <circle cx="12" cy="12" r="1.6" fill="#111111" />
         </svg>
 
         {/* orbiting micro-dot */}
         <motion.span
-          className="absolute h-1 w-1 rounded-full bg-gold shadow-[0_0_6px_rgba(201,162,39,0.9)]"
+          className="absolute h-1 w-1 rounded-full bg-gold shadow-[0_0_6px_rgba(17,17,17,0.5)]"
           style={{ top: "50%", left: "50%" }}
           animate={{
             x: [12, 0, -12, 0, 12],
@@ -128,7 +128,7 @@ export default function EdgeRunner() {
         className="absolute left-1/2 top-1/2 h-12 w-[2px] -translate-x-1/2 -translate-y-full rounded-full"
         style={{
           background:
-            "linear-gradient(to bottom, transparent, rgba(201,162,39,0.45))",
+            "linear-gradient(to bottom, transparent, rgba(17,17,17,0.18))",
           opacity: trailOpacity
         }}
       />

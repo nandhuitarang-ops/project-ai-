@@ -3,6 +3,7 @@
 import Reveal from "./motion/Reveal";
 import { Stagger, StaggerItem } from "./motion/Stagger";
 import SpotlightCard from "./motion/SpotlightCard";
+import WordReveal from "./motion/WordReveal";
 
 const pains = [
   {
@@ -40,14 +41,14 @@ export default function Problem() {
               <span className="text-stroke">Nobody's showing real AI projects.</span>
             </h2>
           </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-5 text-lg muted">
-              Automation, LLMs, agents — that's what recruiters are hunting
-              for. But resumes still ship todo apps and tutorial clones. The
-              gap between what the market wants and what students build has
-              never been wider. That's where we come in.
-            </p>
-          </Reveal>
+          <WordReveal
+            as="p"
+            className="mt-5 text-lg muted"
+            stagger={28}
+            duration={620}
+          >
+            Automation, LLMs, agents — that's what recruiters are hunting for. But resumes still ship todo apps and tutorial clones. The gap between what the market wants and what students build has never been wider. That's where we come in.
+          </WordReveal>
         </div>
 
         <Stagger className="mt-12 grid gap-4 sm:grid-cols-2">

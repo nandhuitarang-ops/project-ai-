@@ -131,10 +131,10 @@ export default function JoinCTA() {
                   We'll be in your inbox within 48 hours. Watch for a message
                   from{" "}
                   <a
-                    href="mailto:nandhu939880@gmail.com"
+                    href="mailto:nexia0911@gmail.com"
                     className="font-mono text-gold-deep link-underline"
                   >
-                    nandhu939880@gmail.com
+                    nexia0911@gmail.com
                   </a>
                   .
                 </p>
@@ -202,10 +202,10 @@ export default function JoinCTA() {
                 <p className="text-center text-xs text-ink-faint">
                   Prefer to reach out directly? Email{" "}
                   <a
-                    href="mailto:nandhu939880@gmail.com"
+                    href="mailto:nexia0911@gmail.com"
                     className="text-gold-deep link-underline"
                   >
-                    nandhu939880@gmail.com
+                    nexia0911@gmail.com
                   </a>{" "}
                   or WhatsApp{" "}
                   <a

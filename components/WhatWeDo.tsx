@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Reveal from "./motion/Reveal";
 import { Stagger, StaggerItem } from "./motion/Stagger";
 import SpotlightCard from "./motion/SpotlightCard";
+import WordReveal from "./motion/WordReveal";
 
 const bullets = [
   {
@@ -49,14 +50,14 @@ export default function WhatWeDo() {
                 <span className="gradient-text italic">actually care about</span>.
               </h2>
             </Reveal>
-            <Reveal delay={0.1}>
-              <p className="mt-5 text-lg muted">
-                We deploy real AI projects for students — built around a
-                problem you actually face, shipped to a live URL, ready for
-                your resume. The kind of work recruiters bring up in the first
-                interview, not the kind they scroll past.
-              </p>
-            </Reveal>
+            <WordReveal
+              as="p"
+              className="mt-5 text-lg muted"
+              stagger={26}
+              duration={620}
+            >
+              We deploy real AI projects for students — built around a problem you actually face, shipped to a live URL, ready for your resume. The kind of work recruiters bring up in the first interview, not the kind they scroll past.
+            </WordReveal>
 
             <Stagger className="mt-8 space-y-5" stagger={0.1}>
               {bullets.map((b) => (
@@ -84,15 +85,28 @@ export default function WhatWeDo() {
           </div>
 
           <Reveal direction="left" delay={0.2}>
-            <SpotlightCard className="relative">
-              <div className="flex items-center justify-between">
+            <SpotlightCard className="relative overflow-hidden">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 -z-0 opacity-[0.18]"
+                style={{
+                  backgroundImage: "url('/images/arc.png')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center 70%",
+                  maskImage:
+                    "linear-gradient(to bottom, transparent 0%, black 30%, black 80%, transparent 100%)",
+                  WebkitMaskImage:
+                    "linear-gradient(to bottom, transparent 0%, black 30%, black 80%, transparent 100%)",
+                }}
+              />
+              <div className="relative z-10 flex items-center justify-between">
                 <span className="chip font-mono">examples.ts</span>
                 <span className="font-mono text-xs text-ink-faint">
                   8 of ∞
                 </span>
               </div>
               <Stagger
-                className="mt-5 flex flex-wrap gap-2"
+                className="relative z-10 mt-5 flex flex-wrap gap-2"
                 stagger={0.05}
                 delayChildren={0.2}
               >
@@ -111,7 +125,7 @@ export default function WhatWeDo() {
                   </StaggerItem>
                 ))}
               </Stagger>
-              <div className="mt-6 rounded-lg border border-line bg-cream-light/70 p-4 font-mono text-[12px] leading-relaxed">
+              <div className="relative z-10 mt-6 rounded-lg border border-line bg-cream-light/70 p-4 font-mono text-[12px] leading-relaxed">
                 <div className="text-ink-faint">// the only rule</div>
                 <div>
                   <span className="text-gold-deep">const</span>{" "}
